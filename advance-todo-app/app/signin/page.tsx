@@ -1,9 +1,16 @@
 import { signIn } from "@/lib/auth";
-import { Sparkles } from "lucide-react";
+import { Sparkles, CheckSquare, Flame, Calendar } from "lucide-react";
+import Link from "next/link";
+
+export const metadata = {
+  title: "FlowTask — Advanced Todo & Habit Tracker",
+  description:
+    "FlowTask is a productivity app for managing todos, building habits with streak tracking, and syncing tasks with Google Calendar.",
+};
 
 export default function SignInPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4">
       <div className="w-full max-w-md space-y-8 text-center">
         {/* Logo */}
         <div className="flex flex-col items-center gap-4">
@@ -16,11 +23,27 @@ export default function SignInPage() {
           </div>
         </div>
 
+        {/* Feature highlights */}
+        <div className="grid grid-cols-3 gap-3 text-xs text-muted-foreground">
+          <div className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-3">
+            <CheckSquare className="h-5 w-5 text-indigo-400" />
+            <span>Smart Todos with priorities, tags &amp; subtasks</span>
+          </div>
+          <div className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-3">
+            <Flame className="h-5 w-5 text-orange-400" />
+            <span>Habit streaks with heatmaps &amp; analytics</span>
+          </div>
+          <div className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-3">
+            <Calendar className="h-5 w-5 text-green-400" />
+            <span>Sync todos directly to Google Calendar</span>
+          </div>
+        </div>
+
         {/* Card */}
         <div className="rounded-2xl border border-border bg-card p-8 shadow-xl">
-          <h2 className="mb-2 text-xl font-semibold text-foreground">Welcome back</h2>
+          <h2 className="mb-2 text-xl font-semibold text-foreground">Get started</h2>
           <p className="mb-6 text-sm text-muted-foreground">
-            Sign in with Google to access your tasks and habits — and sync with Google Calendar.
+            Sign in with Google to manage your tasks, build habits, and sync with Google Calendar.
           </p>
           <form
             action={async () => {
@@ -44,7 +67,11 @@ export default function SignInPage() {
         </div>
 
         <p className="text-xs text-muted-foreground">
-          By signing in, Google Calendar access is requested to sync your todos.
+          By signing in, you agree to our{" "}
+          <Link href="/privacy" className="underline hover:text-foreground transition">
+            Privacy Policy
+          </Link>
+          . Google Calendar access is requested to sync your todos.
         </p>
       </div>
     </div>

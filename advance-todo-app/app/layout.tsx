@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FlowTask — Advanced Todo & Habit Tracker",
-  description: "Stay on top of your todos, build powerful habits, and sync with Google Calendar.",
+  description: "FlowTask is a productivity app for managing todos, building habits with streak tracking, and syncing tasks with Google Calendar.",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
